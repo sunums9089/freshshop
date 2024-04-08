@@ -1,0 +1,40 @@
+{% extends 'userindex.html' %}
+{% block content %}
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Checkout</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                    <li class="breadcrumb-item active">Checkout</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cart-box-main">
+    <div class="container">
+       <a href="{% url 'tnk' %}"><h1><center style="color: blue;"><button style="color: blue; font-family: Georgia, 'Times New Roman', Times, serif;">Thank You For Purchasing, Continue Shopping</button></center></h1></a>
+    
+    </div>
+    <br>
+    <br>
+    <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"><b><center><u>your orders</u></center></b></h1>
+    <div class="row">
+        {% for i in data %}
+  
+    <div class="col-md-4">
+        <div> <img class="d-block w-100" src="{{i.cartid.productid.product_image.url}}" alt="First slide"> </div>
+        <div class="single-product-details">
+            <h2>{{i.cartid.productid.product_name}}</h2>
+            <h5> <del></del>{{i.cartid.quantity}}</h5>
+            <h5> <del></del>{{i.cartid.total}}</h5>            
+
+        </div>
+    </div>
+{% endfor %}
+    </div>
+
+</div>
+{% endblock %}
